@@ -2,7 +2,7 @@ import speech_recognition
 import pyttsx4
 
 # Engine for speach to text
-engine = pyttsx4.init('sapi5')
+engine = pyttsx4.init('nsss')
 
 # Sets voice properties
 voices = engine.getProperty('voices')
