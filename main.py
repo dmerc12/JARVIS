@@ -1,13 +1,14 @@
+from settings import settings
 import speech_recognition
 import pyttsx4
 
 # Engine for speach to text
-engine = pyttsx4.init('nsss')
+engine = pyttsx4.init(settings.voice)
 
 # Sets voice properties
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
-engine.setProperty('rate', 250)
+engine.setProperty('rate', settings.rate)
 
 # Speak function
 def speak(audio):
@@ -32,7 +33,7 @@ def takeCommand():
         response = "I'm sorry, could you please say that again?"
         print(response)
         speak(response)
-        return response
+        return 'None'
     # Return query
     return query
 
