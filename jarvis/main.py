@@ -7,7 +7,7 @@ engine = pyttsx4.init('nsss')
 # Sets voice properties
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
-engine.setProperty('rate', 150)
+engine.setProperty('rate', 250)
 
 # Speak function
 def speak(audio):
@@ -25,12 +25,13 @@ def takeCommand():
     # Recognize command
     try:
         print('Thinking...')
-        query = recognizer.recognize_whisper(audio, language='en-US')
+        query = recognizer.recognize_google(audio, language='en-US')
         print(f'You said: {query}\n')
     # Handling if command is not recognized
     except Exception as e:
         response = "I'm sorry, could you please say that again?"
         print(response)
+        speak(response)
         return response
     # Return query
     return query
