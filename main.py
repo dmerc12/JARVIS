@@ -48,3 +48,9 @@ if __name__ == '__main__':
             response = 'Yes sir'
             print(response)
             speak(response)
+        # Respond to question 'who are you?'
+        elif 'who are you' in query:
+            response = 'My name is JARVIS. I am an artificial intelligence built to assist you with day to day tasks. Please let me know if there is anything I can do to be of assistance sir'
+            print(response)
+            speak(response)
+
