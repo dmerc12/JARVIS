@@ -1,6 +1,7 @@
 from commands.personal_questions.name import speak_name
 from commands.personal_questions.default import default
 from commands.personal_questions.kenobi import kenobi
+from commands.stop_jarvis import stop_jarvis
 from commands.command import take_command
 from commands.greeting import greeting
 
@@ -8,6 +9,7 @@ from commands.greeting import greeting
 if __name__ == '__main__':
     # Set initial variable for inital greeting
     initial = True
+    
     # Infinite loop to have JARVIS running while program is running
     while True:
         # Greet user on startup
@@ -20,16 +22,22 @@ if __name__ == '__main__':
 
         # Sets up lists of trigger commands
         defaults = ['jarvis', 'are you there']
+        shutdown_commands = ['shut down', 'shutdown', 'power down', 'power off', 'power cycle']
         name_questions = ['who are you', "what's your name", 'what is your name', 'what are you called', "what're you called"]
 
         # Secret response for General Kenobi
         if 'hello there' in query:
             kenobi()
 
-        # Respond to default
+        # Reponse to stop JARVIS
+        elif any(command in query for command in shutdown_commands):
+            stop_jarvis()
+            break
+
+        # Response for default
         elif any(default in query for default in defaults):
             default()
         
-        # Respond to name questions
+        # Response for name questions
         elif any(question in query for question in name_questions):
             speak_name()
