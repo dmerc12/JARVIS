@@ -1,9 +1,10 @@
 from commands.command import take_command, listen_for_name
+from commands.youtube import search_youtube, open_youtube
 from commands.greeting import greeting, initial_greeting
 from commands.personal_questions.name import speak_name
 from commands.personal_questions.default import default
-from commands.personal_questions.kenobi import kenobi
 from commands.google import search_google, open_google
+from commands.personal_questions.kenobi import kenobi
 from commands.stop_jarvis import stop_jarvis
 
 # Main function for running JARVIS
@@ -47,6 +48,10 @@ if __name__ == '__main__':
                 open_google()
             elif 'search google' in query:
                 search_google()
+            elif 'open youtube' in query:
+                open_youtube()
+            elif 'search youtube' in query:
+                search_youtube()
 
             # Sets listening back to false to await name again
             listening = False
