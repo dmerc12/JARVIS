@@ -1,6 +1,7 @@
 from commands.personal_questions.name import speak_name
 from commands.personal_questions.default import default
 from commands.personal_questions.kenobi import kenobi
+from commands.search_google import search_google
 from commands.open_google import open_google
 from commands.stop_jarvis import stop_jarvis
 from commands.command import take_command
@@ -43,3 +44,6 @@ if __name__ == '__main__':
         # Response for opening google
         elif 'open google' in query:
             open_google()
+        # Response fo r searching google
+        elif 'search google' in query:
+            search_google()
