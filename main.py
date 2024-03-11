@@ -1,10 +1,10 @@
 from commands.personal_questions.name import speak_name
 from commands.personal_questions.default import default
 from commands.personal_questions.kenobi import kenobi
+from commands.open_google import open_google
 from commands.stop_jarvis import stop_jarvis
 from commands.command import take_command
 from commands.greeting import greeting
-from commands.lookup import lookup
 
 # Main function for running JARVIS
 if __name__ == '__main__':
@@ -25,7 +25,7 @@ if __name__ == '__main__':
         defaults = ['jarvis', 'are you there']
         shutdown_commands = ['shut down', 'shutdown', 'power down', 'power off', 'power cycle']
         name_questions = ['who are you', "what's your name", 'what is your name', 'what are you called', "what're you called"]
-        lookup_questions = ['what is a',]
+        
         # Secret response for General Kenobi
         if 'hello there' in query:
             kenobi()
@@ -40,6 +40,6 @@ if __name__ == '__main__':
         # Response for name questions
         elif any(question in query for question in name_questions):
             speak_name()
-        # Response for lookup questions
-        elif any(question in query for question in lookup_questions):
-            lookup(query)
+        # Response for opening google
+        elif 'open google' in query:
+            open_google()
