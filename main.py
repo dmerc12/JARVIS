@@ -5,6 +5,7 @@ from commands.personal_questions.name import speak_name
 from commands.personal_questions.kenobi import kenobi
 from commands.utils.greeting import initial_greeting
 from commands.utils.stop_jarvis import stop_jarvis
+from commands.system.time import tell_time
 from commands.utils.speak import speak
 
 # Main function for running JARVIS
@@ -60,4 +61,7 @@ if __name__ == '__main__':
                 break
             elif 'search youtube' in query:
                 search_youtube()
+                break
+            elif 'what time is it' in query:
+                tell_time()
                 break
