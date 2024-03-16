@@ -1,7 +1,7 @@
-from ..speak import speak
+from ..utils.speak import speak
 
 # Secret function for special response
 def kenobi():
     response = 'General Kenobi, you are a bold one!'
-    print(response)
+    print(response, flush=True)
     speak(response)
