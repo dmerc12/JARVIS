@@ -9,7 +9,10 @@ def take_command():
     with speech_recognition.Microphone() as source:
         print('Listening...', flush=True)
         recognizer.pause_threshold = 1
-        audio = recognizer.listen(source)
+        try:
+            audio = recognizer.listen(source, timeout=5)
+        except speech_recognition.WaitTimeoutError:
+            return 'nothing heard'
     # Recognize command
     try:
         print('Thinking...')
@@ -31,7 +34,7 @@ def listen_for_name():
     with speech_recognition.Microphone() as source:
         print('Waiting to be called...', flush=True)
         recognizer.pause_threshold = 1
-        audio = recognizer.listen(source)
+        audio = recognizer.listen(source, timeout=5)
     # Recognize what is spoken
     try:
         triggers = ['jarvis', 'are you there']

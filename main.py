@@ -5,6 +5,7 @@ from commands.personal_questions.name import speak_name
 from commands.personal_questions.kenobi import kenobi
 from commands.utils.greeting import initial_greeting
 from commands.utils.stop_jarvis import stop_jarvis
+from commands.utils.speak import speak
 
 # Main function for running JARVIS
 if __name__ == '__main__':
@@ -30,6 +31,12 @@ if __name__ == '__main__':
         # Listen for a command
         while listening:
             query = take_command().lower()
+
+            if query == 'nothing heard':
+                listening = False
+                response = "I'm Sorry, I didn't hear anything. Powering down."
+                print(response, flush=True)
+                speak(response)
 
             shutdown_commands = ['shut down', 'shutdown', 'power down', 'power off', 'power cycle']
             name_questions = ['who are you', "what's your name", 'what is your name', 'what are you called', "what're you called"]
