@@ -15,3 +15,9 @@ def restart_jarvis():
     print(response, flush=True)
     speak(response)
     os.execl(sys.executable, f'"{sys.executable}"', *sys.argv)
+
+# Function to dismiss JARVIS
+def dismiss_jarvis():
+    response = 'Ok, please let me know if there is anything I can do to be of assistance'
+    print(response, flush=True)
+    speak(response)
