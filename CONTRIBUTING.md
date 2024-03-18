@@ -1,6 +1,6 @@
-# Contributing to [Your Project Name]
+# Contributing to Jarvis
 
-Welcome to [Your Project Name]! We're excited to have you contribute. Before you get started, please take a moment to review the following guidelines.
+Welcome to Jarvis! We're excited to have you contribute. Before you get started, please take a moment to review the following guidelines.
 
 ## How to Contribute
 
