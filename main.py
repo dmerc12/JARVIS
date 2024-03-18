@@ -1,10 +1,10 @@
-from commands.utils.command import take_command, listen_for_name
+from commands.utils.stop_jarvis import stop_jarvis, restart_jarvis, dismiss_jarvis
 from commands.browser.youtube import search_youtube, open_youtube
+from commands.utils.command import take_command, listen_for_name
 from commands.browser.google import search_google, open_google
 from commands.personal_questions.name import speak_name
 from commands.personal_questions.kenobi import kenobi
 from commands.utils.greeting import initial_greeting
-from commands.utils.stop_jarvis import stop_jarvis
 from commands.system.time import tell_time
 from commands.utils.speak import speak
 
@@ -39,12 +39,19 @@ if __name__ == '__main__':
                 print(response, flush=True)
                 speak(response)
 
-            shutdown_commands = ['shut down', 'shutdown', 'power down', 'power off', 'power cycle']
+            dismiss_commands = ['never mind', 'cancel', 'stop listening', 'abort', 'ignore', 'disregard', 'forget it', 'no, thanks', 'no thanks', "that's enough", 'ignore that']
+            restart_commands = ['restart', 'reboot', 'refresh', 'power cycle']
+            shutdown_commands = ['shut down', 'shutdown', 'power down', 'power off', 'cycle down']
             name_questions = ['who are you', "what's your name", 'what is your name', 'what are you called', "what're you called"]
 
             if 'hello there' in query:
                 kenobi()
                 break
+            elif any(command in query for command in dismiss_commands):
+                dismiss_jarvis()
+                break
+            elif any(command in query for command in restart_commands):
+                restart_jarvis()
             elif any(command in query for command in shutdown_commands):
                 stop_jarvis()
             elif any(question in query for question in name_questions):
